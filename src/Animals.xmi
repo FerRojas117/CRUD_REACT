@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.0" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+	<xmi:Documentation exporter="StarUML" exporterVersion="2.0"/>
+	<uml:Model xmi:id="AAAAAAFrPzjnRBBT51s=" xmi:type="uml:Model" name="RootModel">
+		<packagedElement xmi:id="AAAAAAFF+qBWK6M3Z8Y=" name="Model" visibility="public" xmi:type="uml:Model">
+			<packagedElement xmi:id="AAAAAAFrPxwK4IjmWPQ=" name="Animal" visibility="public" isAbstract="false" isFinalSpecialization="false" isLeaf="false" xmi:type="uml:Class" isActive="false">
+				<ownedAttribute xmi:id="AAAAAAFrPxw1v4kQYlQ=" name="age" visibility="public" isStatic="false" isLeaf="false" type="int_id" isReadOnly="false" isOrdered="false" isUnique="false" xmi:type="uml:Property" aggregation="none" isDerived="false" isID="false"/>
+				<ownedAttribute xmi:id="AAAAAAFrPxx7X4kXsYs=" name="gender" visibility="public" isStatic="false" isLeaf="false" type="String_id" isReadOnly="false" isOrdered="false" isUnique="false" xmi:type="uml:Property" aggregation="none" isDerived="false" isID="false"/>
+				<ownedOperation xmi:id="AAAAAAFrPx7zLYkfWow=" name="isMammal" visibility="public" isStatic="false" isLeaf="false" concurrency="sequential" isQuery="false" isAbstract="false" xmi:type="uml:Operation"/>
+				<ownedOperation xmi:id="AAAAAAFrPx9/iYkm580=" name="mate" visibility="public" isStatic="false" isLeaf="false" concurrency="sequential" isQuery="false" isAbstract="false" xmi:type="uml:Operation"/>
+			</packagedElement>
+			<packagedElement xmi:id="AAAAAAFrPyA1yok+vRI=" name="Duck" visibility="public" isAbstract="false" isFinalSpecialization="false" isLeaf="false" xmi:type="uml:Class" isActive="false">
+				<ownedAttribute xmi:id="AAAAAAFrPyCvQolsGXg=" name="beakColor" visibility="public" isStatic="false" isLeaf="false" type="String_id" isReadOnly="false" isOrdered="false" isUnique="false" xmi:type="uml:Property" aggregation="none" isDerived="false" isID="false">
+					<defaultValue xmi:id="AAAAAAFrPzjnSBBUTbA=" xmi:type="uml:LiteralString" value="%22yellow%22"/>
+				</ownedAttribute>
+				<ownedOperation xmi:id="AAAAAAFrPyHe0Il2zzE=" name="swim" visibility="public" isStatic="false" isLeaf="false" concurrency="sequential" isQuery="false" isAbstract="false" xmi:type="uml:Operation"/>
+				<ownedOperation xmi:id="AAAAAAFrPyIXnIl9Gr0=" name="quack" visibility="public" isStatic="false" isLeaf="false" concurrency="sequential" isQuery="false" isAbstract="false" xmi:type="uml:Operation"/>
+				<generalization xmi:id="AAAAAAFrPyASI4ktEXg=" visibility="public" xmi:type="uml:Generalization" specific="AAAAAAFrPyA1yok+vRI=" general="AAAAAAFrPxwK4IjmWPQ="/>
+			</packagedElement>
+			<packagedElement xmi:id="AAAAAAFrPySqt4mYa8E=" name="Fish" visibility="public" isAbstract="false" isFinalSpecialization="false" isLeaf="false" xmi:type="uml:Class" isActive="false">
+				<ownedAttribute xmi:id="AAAAAAFrPyTQpInCmNA=" name="sizeInFt" visibility="public" isStatic="false" isLeaf="false" type="int_id" isReadOnly="false" isOrdered="false" isUnique="false" xmi:type="uml:Property" aggregation="none" isDerived="false" isID="false"/>
+				<ownedAttribute xmi:id="AAAAAAFrPyVRNYnL+WU=" name="canEat" visibility="public" isStatic="false" isLeaf="false" type="Boolean_id" isReadOnly="false" isOrdered="false" isUnique="false" xmi:type="uml:Property" aggregation="none" isDerived="false" isID="false"/>
+				<ownedOperation xmi:id="AAAAAAFrPyW0zInSrFA=" name="swim" visibility="public" isStatic="false" isLeaf="false" concurrency="sequential" isQuery="false" isAbstract="false" xmi:type="uml:Operation"/>
+				<generalization xmi:id="AAAAAAFrPyQbuImHx+Y=" visibility="public" xmi:type="uml:Generalization" specific="AAAAAAFrPySqt4mYa8E=" general="AAAAAAFrPxwK4IjmWPQ="/>
+			</packagedElement>
+			<packagedElement xmi:id="AAAAAAFrPyYlY4nbd4I=" name="Zebra" visibility="public" isAbstract="false" isFinalSpecialization="false" isLeaf="false" xmi:type="uml:Class" isActive="false">
+				<ownedAttribute xmi:id="AAAAAAFrPyZ5nooHd0k=" name="is_Wild" visibility="public" isStatic="false" isLeaf="false" type="Boolean_id" isReadOnly="false" isOrdered="false" isUnique="false" xmi:type="uml:Property" aggregation="none" isDerived="false" isID="false"/>
+				<ownedOperation xmi:id="AAAAAAFrPyb0TooQs4Y=" name="run" visibility="public" isStatic="false" isLeaf="false" concurrency="sequential" isQuery="false" isAbstract="false" xmi:type="uml:Operation"/>
+				<generalization xmi:id="AAAAAAFrPycgb4oXBgo=" visibility="public" xmi:type="uml:Generalization" specific="AAAAAAFrPyYlY4nbd4I=" general="AAAAAAFrPxwK4IjmWPQ="/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement xmi:id="int_id" xmi:type="uml:DataType" name="int"/>
+		<packagedElement xmi:id="String_id" xmi:type="uml:DataType" name="String"/>
+		<packagedElement xmi:id="Boolean_id" xmi:type="uml:DataType" name="Boolean"/>
+	</uml:Model>
+</xmi:XMI>

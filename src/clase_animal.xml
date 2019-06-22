@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clase name="Animal">
+	<Attribute name="age" type="int"/>
+	<Attribute name="gender" type="string"/>
+	<Attribute name="canFly" type="bool"/>
+	<Operation name="isMammal"/>
+	<Operation name="addMate"/>
+</clase>
