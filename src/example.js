@@ -11,52 +11,70 @@ var XMLParser = require('react-xml-parser');
 export default class Example extends Admin {
   constructor() {
 
-    let xmlText;
+    let xmlText; // Creamos archivo xml
 
     xmlText += "<?xml version='1.0' encoding='utf-8'?>";
     xmlText += "<class name='student'>";
     xmlText += "<attributes>";
-    xmlText += "<attribute id='1'>Name </attribute>";
+    xmlText += "<attribute id='1'> Name </attribute>";
     xmlText += "<attribute id='2' type='string' >Surname </attribute>";
     xmlText += "</attributes>";
     xmlText += "<functions>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>Add_user<name>";
+    xmlText += "<name>Add_user</name>";
     xmlText += "<parameters>";
     xmlText += "<paramater type='string'>Name</paramater>";
     xmlText += "<paramater type='string'>Surname</paramater>";
     xmlText += "</parameters>";
-    xmlText += "<functions>";
+    xmlText += "</function>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>function1<name>";
+    xmlText += "<name>function1</name>";
     xmlText += "<parameters>";
     xmlText += "<paramater type='string'>name</paramater>";
     xmlText += "<paramater type='string'>Surname</paramater>";
-    xmlText += "<paramater type='string'>name</paramater>";
     xmlText += "</parameters>";
     xmlText += "</function>";
+    xmlText += "</functions>"
     xmlText += "</class>";
     
+    var xml = new XMLParser().parseFromString(xmlText);// Guardamos XML
 
+    let clase = xml.getElementsByTagName("class"); // Obtenemos el arreglo con las clases
 
-    var xml = new XMLParser().parseFromString(xmlText);    // Assume xmlText contains the example XML
-    console.log(xml);
-    console.log(xml.getElementsByTagName('paramater'));
+    const className = (({name}) => ({name}))(clase[0].attributes); // nombre de la clase
+      
+    const tamanoAT=(Object.keys(clase[0].children[0].children).length);//cantidad de atributos
   
+    const tamanoOP =(Object.keys(clase[0].children[1].children).length); //cantidad de metodos
+
+    console.log(clase);
+    
     super();
     // nombre para la clase principal
-    this.name = "Animal";
+    this.name = className.name;
 
-    this.name_plural = "Students";
+    this.name_plural = className.name+"s";
     // atributo para hacerlo clickeable y mostrar información
     this.list_display_links = ["name"];
     // lista para desplegar los nombres de los campos(atributos de clase)
-    this.list_display = ["name", "Surname", "Enrolment", "GPA" ,"Status"];
-    // lista para desplegar las acciones al dropdown de acciones de 
-    this.actions = {
-      "" :(selected_objects)=>{},"delete" : (selected_objects)=>{ }, "update": (selected_objects)=>{ }
-    };
+    for (var i = 0; i < tamanoAT; i++){
+      let clasAt =(({value }) => ({value}))(clase[0].children[0].children[i]);
+      this.list_display.push (clasAt.value);
+    }
 
+
+    // lista para desplegar las acciones al dropdown de acciones de
+    for(var j = 0; j<tamanoOP; j++){
+      let clasOp = (({value}) => ({value}))(clase[0].children[1].children[j].children[0]);
+
+      /*this.actions = { 
+        clasOp.value :(selected_objects)=>{}
+      };*/
+      console.log(clasOp);
+      this.actions[clasOp.value]="";
+
+      
+    }
     // definir una interfaz o estructura para definir un atributo del esquema
     // requerido para propiedades
     /*
