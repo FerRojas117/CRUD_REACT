@@ -2,24 +2,59 @@ import React from "react";
 import Admin from "react-crud-admin";
 import Form from "react-jsonschema-form";
 import Property from './property';
-import XMLparser from './ejemplo_xml';
+
 import "react-crud-admin/css"; //optional css import
+
+
+var XMLParser = require('react-xml-parser');
  
 export default class Example extends Admin {
   constructor() {
- 
+
+    let xmlText;
+
+    xmlText += "<?xml version='1.0' encoding='utf-8'?>";
+    xmlText += "<class name='student'>";
+    xmlText += "<attributes>";
+    xmlText += "<attribute id='1'>Name </attribute>";
+    xmlText += "<attribute id='2' type='string' >Surname </attribute>";
+    xmlText += "</attributes>";
+    xmlText += "<functions>";
+    xmlText += "<function id='' type='' description=''>";
+    xmlText += "<name>Add_user<name>";
+    xmlText += "<parameters>";
+    xmlText += "<paramater type='string'>Name</paramater>";
+    xmlText += "<paramater type='string'>Surname</paramater>";
+    xmlText += "</parameters>";
+    xmlText += "<functions>";
+    xmlText += "<function id='' type='' description=''>";
+    xmlText += "<name>function1<name>";
+    xmlText += "<parameters>";
+    xmlText += "<paramater type='string'>name</paramater>";
+    xmlText += "<paramater type='string'>Surname</paramater>";
+    xmlText += "<paramater type='string'>name</paramater>";
+    xmlText += "</parameters>";
+    xmlText += "</function>";
+    xmlText += "</class>";
+    
+
+
+    var xml = new XMLParser().parseFromString(xmlText);    // Assume xmlText contains the example XML
+    console.log(xml);
+    console.log(xml.getElementsByTagName('paramater'));
+  
     super();
     // nombre para la clase principal
     this.name = "Animal";
 
-    this.name_plural = "Animales";
+    this.name_plural = "Students";
     // atributo para hacerlo clickeable y mostrar información
     this.list_display_links = ["name"];
     // lista para desplegar los nombres de los campos(atributos de clase)
-    this.list_display = ["name", "number", "address.street", "age"];
+    this.list_display = ["name", "Surname", "Enrolment", "GPA" ,"Status"];
     // lista para desplegar las acciones al dropdown de acciones de 
     this.actions = {
-      "delete" : (selected_objects)=>{ }, "update": (selected_objects)=>{ }
+      "" :(selected_objects)=>{},"delete" : (selected_objects)=>{ }, "update": (selected_objects)=>{ }
     };
 
     // definir una interfaz o estructura para definir un atributo del esquema
@@ -64,9 +99,12 @@ export default class Example extends Admin {
     });
 
     // leer archivo xml 
-    // let readArchive = new XMLparser();
-    // readArchive.getFile("clase_animal.xml");
+    /*
+    let readArchive = new XMLparser();
+    readArchive.getFile("uml.xml");
+    */
   }
+
 
   get_queryset(page_number, list_per_page, queryset) {
     return [
