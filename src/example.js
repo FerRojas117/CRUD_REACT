@@ -2,10 +2,11 @@ import React from "react";
 import Admin from "react-crud-admin";
 import Form from "react-jsonschema-form";
 import Property from './property';
+import "react-crud-admin/css";
 
-import "react-crud-admin/css"; //optional css import
+//Todas son librerias las de arriba
 
-
+// DE AQUI HICIMOS
 var XMLParser = require('react-xml-parser');
  
 export default class Example extends Admin {
@@ -14,24 +15,22 @@ export default class Example extends Admin {
     let xmlText; // Creamos archivo xml
 
     xmlText += "<?xml version='1.0' encoding='utf-8'?>";
-    xmlText += "<class name='student'>";
+    xmlText += "<class name='Animal'>";
     xmlText += "<attributes>";
-    xmlText += "<attribute id='1'> Name </attribute>";
-    xmlText += "<attribute id='2' type='string' >Surname </attribute>";
+    xmlText += "<attribute id='1'> Nombre </attribute>";
+    xmlText += "<attribute id='2' type='string' >Nombre Cientifico </attribute>";
     xmlText += "</attributes>";
     xmlText += "<functions>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>Add_user</name>";
+    xmlText += "<name>agregar_animal</name>";
     xmlText += "<parameters>";
     xmlText += "<paramater type='string'>Name</paramater>";
-    xmlText += "<paramater type='string'>Surname</paramater>";
     xmlText += "</parameters>";
     xmlText += "</function>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>function1</name>";
+    xmlText += "<name>quitar_animal</name>";
     xmlText += "<parameters>";
-    xmlText += "<paramater type='string'>name</paramater>";
-    xmlText += "<paramater type='string'>Surname</paramater>";
+    xmlText += "<paramater type='string'>Nombre</paramater>";
     xmlText += "</parameters>";
     xmlText += "</function>";
     xmlText += "</functions>"
@@ -39,32 +38,32 @@ export default class Example extends Admin {
     
     var xml = new XMLParser().parseFromString(xmlText);// Guardamos XML
 
-    let clase = xml.getElementsByTagName("class"); // Obtenemos el arreglo con las clases
+    let clase = xml.getElementsByTagName("class"); // Obtenemos el arreglo con las clases del XML
 
-    const className = (({name}) => ({name}))(clase[0].attributes); // nombre de la clase
+    const className = (({name}) => ({name}))(clase[0].attributes); // guardamos el nombre de la clase
       
-    const tamanoAT=(Object.keys(clase[0].children[0].children).length);//cantidad de atributos
+    const tamanoAT=(Object.keys(clase[0].children[0].children).length);// Obtenemos la cantidad de atributos
   
-    const tamanoOP =(Object.keys(clase[0].children[1].children).length); //cantidad de metodos
+    const tamanoOP =(Object.keys(clase[0].children[1].children).length); // Obtenemos la cantidad de metodos
 
     console.log(clase);
     
     super();
-    // nombre para la clase principal
+    // nombre para la clase principal obtenido de la variable className en el atributo name
     this.name = className.name;
-
+    // plural de la clase
     this.name_plural = className.name+"s";
     // atributo para hacerlo clickeable y mostrar información
     this.list_display_links = ["name"];
-    // lista para desplegar los nombres de los campos(atributos de clase)
-    for (var i = 0; i < tamanoAT; i++){
-      let clasAt =(({value }) => ({value}))(clase[0].children[0].children[i]);
-      this.list_display.push (clasAt.value);
+    // lista para desplegar los nombres de los campos (atributos de clase)
+    for (var i = 0; i < tamanoAT; i++){// ciclo con tamaño de los atributos
+      let clasAt =(({value }) => ({value}))(clase[0].children[0].children[i]); //Obtenemos el valor de los atributos
+      this.list_display.push (clasAt.value); //lo metemos a la lista de atributos del CRUD
     }
 
 
-    // lista para desplegar las acciones al dropdown de acciones de
-    for(var j = 0; j<tamanoOP; j++){
+    // lista para desplegar las acciones en 
+    for(var j = 0; j<tamanoOP; j++){ //cico con tamaño de los metodos
       let clasOp = (({value}) => ({value}))(clase[0].children[1].children[j].children[0]);
 
       /*this.actions = { 
@@ -75,6 +74,9 @@ export default class Example extends Admin {
 
       
     }
+// HASTA AQUI 
+
+
     // definir una interfaz o estructura para definir un atributo del esquema
     // requerido para propiedades
     /*
