@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class name="Auto">
+<attributes>
+    <attribute id="1" type="string">Nombre </attribute>
+    <attribute id="2" type="string">Marca</attribute>
+    <attribute id="3" type="int"> Serie</attribute>
+</attributes>
+<functions>
+    <function id="" type="" description="">
+        <name>agregar_auto<name>
+        <parameters>
+        </parameters>
+    </function>
+    <function id="" type="" description="">
+        <name>quitar_auto<name>
+        <parameters>
+        </parameters>
+    </function>
+</functions>
+</class>

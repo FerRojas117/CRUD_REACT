@@ -10,6 +10,7 @@ import "react-crud-admin/css";
 var XMLParser = require('react-xml-parser');
  
 export default class Example extends Admin {
+  
   constructor() {
 
     let xmlText; // Creamos archivo xml
@@ -17,8 +18,9 @@ export default class Example extends Admin {
     xmlText += "<?xml version='1.0' encoding='utf-8'?>";
     xmlText += "<class name='Animal'>";
     xmlText += "<attributes>";
-    xmlText += "<attribute id='1'> Nombre </attribute>";
+    xmlText += "<attribute id='1' > Nombre </attribute>";
     xmlText += "<attribute id='2' type='string' >Nombre Cientifico </attribute>";
+    xmlText += "<attribute id='3'> Edad </attribute>";
     xmlText += "</attributes>";
     xmlText += "<functions>";
     xmlText += "<function id='' type='' description=''>";
@@ -148,9 +150,7 @@ export default class Example extends Admin {
   get_form(object = null) {
     
     let schema = {
-      // esquema para el CRUD
-      // titulo del 
-      title: this.name,
+      title: this.name, //nombre de la clase
       type: "object",
       required: ["name"],
       // propiedades de cada clase, obtener del archivo xml las propiedades para poder 
@@ -169,8 +169,7 @@ export default class Example extends Admin {
           properties: {
             street: { type: "string", title: "Street" }
           }
-        },
-        age : { type: "string", title: "Age", default: "" }
+        }
       }
     };
     

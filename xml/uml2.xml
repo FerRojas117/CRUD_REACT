@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class name="Persona">
+<attributes>
+    <attribute id="1">Nombre </attribute>
+    <attribute id="2" type="string" >Nacimiento</attribute>
+    <attribute id="3" type="int" >Edad </attribute>
+</attributes>
+<functions>
+    <function id="" type="" description="">
+        <name>agregar_persona<name>
+        <parameters>
+        </parameters>
+    </function>
+    <function id="" type="" description="">
+        <name>quitar_persona<name>
+        <parameters>
+        </parameters>
+    </function>
+</functions>
+</class>
