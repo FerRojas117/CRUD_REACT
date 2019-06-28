@@ -89,17 +89,15 @@ export default class Example extends Admin {
     return [
       {
         id: 1,
-        name: "Ken Next",
-        number: "08939303003",
-        address: { street: "Hallmark Street" },
-        age: "13"
+        Nombre : "Rodrigo",
+        Namiento: "12-10-95",
+        Edad: 23
       },
       {
         id: 2,
-        name: "Isa Yoll",
-        number: "0908839202",
-        address: { street: "Barbican Street" },
-        age: "19"
+        Nombre : "Fernando",
+        Namiento: "20-04-95",
+        Edad: 24
       }
     ];
   }
@@ -124,7 +122,6 @@ export default class Example extends Admin {
       schema.properties[this.atributo[z].value]=this.atributo[z].attributes;
     }
     console.log(schema);
-
 
     if (!object) {
       return <Form schema={schema} />;
