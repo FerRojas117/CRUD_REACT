@@ -1,0 +1,22 @@
+let xmlText; // Creamos archivo xml
+
+    xmlText += "<?xml version='1.0' encoding='utf-8'?>";
+    xmlText += "<class name='Auto'>";
+    xmlText += "<attributes>";
+    xmlText += "<attribute id='1' type = 'string'> Nombre </attribute>";
+    xmlText += "<attribute id='2' type = 'string'> Marca </attribute>";
+    xmlText += "<attribute id='3' type = 'number'> Serie </attribute>";
+    xmlText += "</attributes>";
+    xmlText += "<functions>";
+    xmlText += "<function id='' type='' description=''>";
+    xmlText += "<name>agregar_auto</name>";
+    xmlText += "<parameters>";
+    xmlText += "</parameters>";
+    xmlText += "</function>";
+    xmlText += "<function id='' type='' description=''>";
+    xmlText += "<name>quitar_auto</name>";
+    xmlText += "<parameters>";
+    xmlText += "</parameters>";
+    xmlText += "</function>";
+    xmlText += "</functions>"
+    xmlText += "</class>";

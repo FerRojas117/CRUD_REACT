@@ -1,0 +1,22 @@
+let xmlText; // Creamos archivo xml
+
+    xmlText += "<?xml version='1.0' encoding='utf-8'?>";
+    xmlText += "<class name='`Persona'>";
+    xmlText += "<attributes>";
+    xmlText += "<attribute id='1' type = 'string' > Nombre </attribute>";
+    xmlText += "<attribute id='2' type = 'string' >Nacimiento </attribute>";
+    xmlText += "<attribute id='3' type = 'number'> Edad </attribute>";
+    xmlText += "</attributes>";
+    xmlText += "<functions>";
+    xmlText += "<function id='' type='' description=''>";
+    xmlText += "<name>agregar_persona</name>";
+    xmlText += "<parameters>";
+    xmlText += "</parameters>";
+    xmlText += "</function>";
+    xmlText += "<function id='' type='' description=''>";
+    xmlText += "<name>quitar_persona</name>";
+    xmlText += "<parameters>";
+    xmlText += "</parameters>";
+    xmlText += "</function>";
+    xmlText += "</functions>"
+    xmlText += "</class>";
