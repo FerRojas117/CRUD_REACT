@@ -12,29 +12,30 @@ export default class Example extends Admin {
   tamAt;
   constructor() {
 
-    let xmlText;// Creamos archivo xml
+    let xmlText; // Creamos archivo xml
 
     xmlText += "<?xml version='1.0' encoding='utf-8'?>";
-    xmlText += "<class name='Persona'>";
+    xmlText += "<class name='Auto'>";
     xmlText += "<attributes>";
-    xmlText += "<attribute id='1' type='string'> Nombre </attribute>";
-    xmlText += "<attribute id='2' type='string' >Nacimiento </attribute>";
-    xmlText += "<attribute id='3' type='number'> Edad </attribute>";
+    xmlText += "<attribute id='1' type='string'>Nombre</attribute>";
+    xmlText += "<attribute id='2' type='string'>Marca</attribute>";
+    xmlText += "<attribute id='3' type='number'>Serie</attribute>";
     xmlText += "</attributes>";
     xmlText += "<functions>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>agregar_persona</name>";
+    xmlText += "<name>agregar_auto</name>";
     xmlText += "<parameters>";
     xmlText += "</parameters>";
     xmlText += "</function>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>quitar_persona</name>";
+    xmlText += "<name>quitar_auto</name>";
     xmlText += "<parameters>";
     xmlText += "</parameters>";
     xmlText += "</function>";
     xmlText += "</functions>"
     xmlText += "</class>";
-    
+
+
     var xml = new XMLParser().parseFromString(xmlText);// Guardamos XML
     let clase = xml.getElementsByTagName("class"); // Obtenemos el arreglo con las clases del XML
     const className = (({name}) => ({name}))(clase[0].attributes); // guardamos el nombre de la clase  
@@ -61,18 +62,10 @@ export default class Example extends Admin {
       this.actions[clasOp.value]=""; //agregamos a lista de acciones
     }
   
-    let arregloAtributos = [
-      { "name": "age", "type": "int", "title": "Age", "default": ""},
-      { "name": "age", "type": "int", "title": "Age", "default": ""},
-  ];
+    let arregloAtributos = [];
+    console.log(this.list_display);
     let arreglo = Array();
-   let pr;
-
-    let arregloMetodos = {
-      "primerElemento" : { "name" : "age"},
-      "segundoElemento" : { "name" : "tipo"},
-    };
-    let titulo = "Animal";
+    let pr;
 
     arregloAtributos.forEach(element => {
       pr = new Property(element.name, element.type, element.type, element.title, element.default);
@@ -88,16 +81,44 @@ export default class Example extends Admin {
   get_queryset(page_number, list_per_page, queryset) {
     return [
       {
+        
+        id:1,
+        Nombre: "Jetta",
+        Marca: "VW",
+        Serie: 1231231231
+        
+
+       /*Animal
+        id:2,
+        Nombre:"Gato",
+        Nombre_Cientifico:"Felinus",
+        Edad:8
+        */
+/*
         id: 1,
         Nombre : "Rodrigo",
-        Namiento: "12-10-95",
-        Edad: 23
+        Nacimiento: "12-10-95",
+        Edad: 23*/
       },
       {
+        
+        id:2,
+        Nombre: "A1",
+        Marca: "Audi",
+        Serie: 1231231231
+        
+
+        /*Animal
+        id:2,
+        Nombre:"Perro",
+        Nombre_Cientifico:"Caninus",
+        Edad:10
+        */
+/*
         id: 2,
         Nombre : "Fernando",
-        Namiento: "20-04-95",
-        Edad: 24
+        Nacimiento: "20-04-95",
+        Edad: 24*/
       }
     ];
   }
