@@ -15,20 +15,20 @@ export default class Example extends Admin {
     let xmlText; // Creamos archivo xml
 
     xmlText += "<?xml version='1.0' encoding='utf-8'?>";
-    xmlText += "<class name='Auto'>";
+    xmlText += "<class name='Animal'>";
     xmlText += "<attributes>";
     xmlText += "<attribute id='1' type='string'>Nombre</attribute>";
-    xmlText += "<attribute id='2' type='string'>Marca</attribute>";
-    xmlText += "<attribute id='3' type='number'>Serie</attribute>";
+    xmlText += "<attribute id='2' type='string'>Nombre_Cientifico</attribute>";
+    xmlText += "<attribute id='3' type='number'>Edad</attribute>";
     xmlText += "</attributes>";
     xmlText += "<functions>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>agregar_auto</name>";
+    xmlText += "<name>agregar_animal</name>";
     xmlText += "<parameters>";
     xmlText += "</parameters>";
     xmlText += "</function>";
     xmlText += "<function id='' type='' description=''>";
-    xmlText += "<name>quitar_auto</name>";
+    xmlText += "<name>quitar_animal</name>";
     xmlText += "<parameters>";
     xmlText += "</parameters>";
     xmlText += "</function>";
@@ -81,19 +81,19 @@ export default class Example extends Admin {
   get_queryset(page_number, list_per_page, queryset) {
     return [
       {
-        
+        /*
         id:1,
         Nombre: "Jetta",
         Marca: "VW",
         Serie: 1231231231
-        
+        */
 
-       /*Animal
+       
         id:2,
         Nombre:"Gato",
         Nombre_Cientifico:"Felinus",
         Edad:8
-        */
+        
 /*
         id: 1,
         Nombre : "Rodrigo",
@@ -101,19 +101,19 @@ export default class Example extends Admin {
         Edad: 23*/
       },
       {
-        
+        /*
         id:2,
         Nombre: "A1",
         Marca: "Audi",
         Serie: 1231231231
-        
+        */
 
-        /*Animal
+        
         id:2,
         Nombre:"Perro",
         Nombre_Cientifico:"Caninus",
         Edad:10
-        */
+        
 /*
         id: 2,
         Nombre : "Fernando",
